@@ -21,19 +21,11 @@ const allowedOrigins = process.env.CORS_ORIGINS
       'http://localhost:5173',
       'http://127.0.0.1:5173',
       'http://localhost:3000',
-      'https://your-frontend-render-url.onrender.com' // <--- add your deployed frontend URL
+      'https://furnishop-backend.onrender.com' // <--- add your deployed frontend URL
     ];
 
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin) return callback(null, true); // allow server-to-server or Postman
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      const msg = 'The CORS policy does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-  },
+  origin: '*', // allow all origins (testing only)
   credentials: true
 }));
 
