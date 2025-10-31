@@ -15,7 +15,7 @@ const app = express();
 // Middleware
 const allowedOrigins = process.env.CORS_ORIGINS
   ? process.env.CORS_ORIGINS.split(',')
-  : ['http://localhost:5173', 'http://localhost:3000']; // add both common dev ports if needed
+  : ['http://localhost:4173','http://localhost:5173', 'http://localhost:3000']; // add both common dev ports if needed
 
 app.use(cors({
   origin: function(origin, callback) {
